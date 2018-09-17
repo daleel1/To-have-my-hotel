@@ -2,11 +2,14 @@ import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import Logo, { thing } from "./Logo";
-const Booking = () => {
-  return (
-    <p> new booking availabel for {new Date().toLocaleDateString()}</p>
-  )
-};
+import Booking from "./Booking"
+// const Booking = () => {
+//   return (
+//     <p> new booking availabel for {new Date().toLocaleDateString()}</p>
+//   )
+// };
+
+
 
 const SpecialDeals = (props) =>{
       return (
@@ -17,15 +20,19 @@ const SpecialDeals = (props) =>{
     </p>
 );};
 
+ 
 class App extends Component {
+  logWhenClicked = () => {
+    console.log("Button was clicked!");
+  };
   render() {
     return <div className="App">
         <header className="App-header">
-          <Logo name ="new hotel" location= "London"/>
+          <Logo name="new hotel" location="London" handleclick={this.logWhenClicked} />
         </header>
-        <Booking />
-        <SpecialDeals  mentors = {['New', 'Kash', 'Davide', 'German', 'Gerald']} />
-        { thing }
+        <Booking bookingsCount={0} />
+        <SpecialDeals mentors={["New", "Kash", "Davide", "German", "Gerald"]} />
+        {thing}
       </div>;
   }
 }
